@@ -13,6 +13,18 @@ namespace Chapter3
             Panda panda = new Panda();
             Panda she = new Panda();
             panda.Mate = she;
+
+            var stack = new Stack<int>();
+            stack.Push(5);
+            stack.Push(10);
+            var x = stack.Pop(); // x is 10
+            var y = stack.Pop();
+
+            var stackd = new Stack<double>();
+            stackd.Push(5.0);
+            stackd.Push(10.0);
+            var xx = stackd.Pop(); // x is 10
+            var yy = stackd.Pop(); 
         }
     }
 }
