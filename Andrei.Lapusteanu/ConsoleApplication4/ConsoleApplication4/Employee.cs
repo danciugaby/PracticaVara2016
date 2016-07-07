@@ -16,7 +16,7 @@ namespace ConsoleApplication4
         {
             employee_number = 1;
             salary = 1000;
-            hired = true;
+            hired = true;//
         }
 
         public Employee(string f_name, string l_name, int employee_no, int s, bool h) : base(f_name, l_name)
