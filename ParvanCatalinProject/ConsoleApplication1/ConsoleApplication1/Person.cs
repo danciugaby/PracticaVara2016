@@ -6,7 +6,32 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    class Person
+    public class Person
     {
+        private string name;
+        #region SetSiGet
+        
+        public string Name
+        {
+            get 
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        #endregion
+        #region Constructor
+        public Person(string a)
+        {
+            name = a;
+        }
+        public Person()
+        {
+            name = "--";
+        }
+        #endregion
     }
 }
