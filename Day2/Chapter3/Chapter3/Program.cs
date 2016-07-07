@@ -17,7 +17,8 @@ namespace Chapter3
 
         public override string ToString()
         {
-            return a+a;
+            return a+a;//test
+            //dsadasd
         }
 
         public override bool Equals(object obj)
