@@ -21,4 +21,26 @@ namespace Chapter3
             return data[--position];
         }
     }
+    public struct Nullable<T>
+    {
+        private T anotherval;
+        
+        public T Value
+        {
+            get
+            {
+                return anotherval;
+            }
+            //{
+            //    T t = default(T);
+            //    return Value;
+            //}
+            set
+            {
+                if (value != null)
+                if (value.ToString()=="")
+                    Value = default(T);
+            }
+        }
+    }
 }
