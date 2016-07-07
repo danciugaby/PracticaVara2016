@@ -12,6 +12,10 @@ namespace Employee_Class
         {
             Employee a=new Employee("Aristotel","Agapie");
             Console.WriteLine(a.accesFName);
+            Database Data = new Database();
+            Data.DisplayMembers();
+            
+
         }
 
 
