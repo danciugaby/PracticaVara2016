@@ -31,6 +31,12 @@ namespace Chapter4
             t += d.DoubleIt;
             
             util.Transform(ref vals, t);
+            //inside the constructor we subscribe to an event which is treated
+            //in EventExample class
+            EventHandler e  =new EventHandler("symbol");
+
+            //this will trigger the raiseof the event
+            e.Price = 10;
         }
     }
 }
