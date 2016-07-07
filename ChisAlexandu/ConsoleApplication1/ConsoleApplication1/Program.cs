@@ -17,7 +17,7 @@ namespace ChisAlexandruEmployee
             e1.demote();
             e1.display();
             Console.Read();
-
+            //comentariu
         }
     }
 }
