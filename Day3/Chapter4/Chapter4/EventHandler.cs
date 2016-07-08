@@ -16,6 +16,7 @@ namespace Chapter4
             this.symbol = symbol;
 
             PriceChanged += EventExample.MyHandler;
+            PriceChanged += EventExample.MyOtherHandler;
         }
 
         public event PriceChangedHandler PriceChanged;

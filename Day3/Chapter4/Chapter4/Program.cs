@@ -28,6 +28,7 @@ namespace Chapter4
             vals[1] = 2;
             vals[2] = 3;
             Transformer t = d.Square;
+            t += d.Square;
             t += d.DoubleIt;
             
             util.Transform(ref vals, t);
