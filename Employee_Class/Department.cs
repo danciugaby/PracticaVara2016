@@ -7,12 +7,17 @@ using System.Threading.Tasks;
 
 namespace Employee_Class
 {
-    class Department
+    class Department : Database
     {
-        List<Employee> Members = new List<Employee>();
+        #region Members
+        private List<Database> Members = new List<Database>();
+        #endregion
+        #region Constructors
         public Department()
         {
+
         }
-        }
+        #endregion
     }
+}
 

@@ -16,8 +16,7 @@ namespace Employee_Class
         #region Constructors
         public Employee(string fname,string lname) : base(fname, lname)
         {
-           // firstName = fname;
-           // lastName = lname;   
+            
             Salary = DefaultSalary;
             EmployeeNumber = -1;
             Hired = false;

@@ -8,8 +8,10 @@ namespace Employee_Class
 {
     class Database
     {
+        #region Members
         private List<Employee> Members = new List<Employee>();
-        private int status=0;
+        #endregion
+        #region Constructors
         public Database()
         {
             for (int i = 0; i < 5; i++)
@@ -21,6 +23,8 @@ namespace Employee_Class
                 Members.Add(newEmp);
             }
         }
+        #endregion
+        #region Methods
         public void DisplayMembers()
         {
             foreach(Employee e in Members)
@@ -28,5 +32,6 @@ namespace Employee_Class
                 e.display();
             }
         }
+        #endregion
     }
 }
