@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="D:\Facultate\PracticaVara2016\Andrei Lapusteanu\Project 1 - Employee\Main.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -22,6 +22,10 @@ namespace Employee_Class
             EmployeeNumber = -1;
             Hired = false;
         }
+        public Employee()
+        {
+
+        }
         #endregion
         #region Properties
         public int accessEmpNum
