@@ -11,10 +11,8 @@ namespace ChisAlexandruEmployee
         #region Constructor
         public Employee()
         {
-            setFirstName(" ");
-            setLastName(" ");
             mEmployeeNumber = 0;
-            SetSalary(0);
+            Salary=0;
             mHired = false;
         }
         public Employee(string FirstName, string LastName,int EmployeeNumber,int Salary,bool Hired): base(FirstName,LastName)
@@ -25,26 +23,37 @@ namespace ChisAlexandruEmployee
         }
         #endregion
 
-        #region Getters
-        public int getEmployeeNumber()
+        #region Prop
+        public int EmployeeNumber
         {
-            return mEmployeeNumber;
-        }
-        public bool isHired()
-        {
-            return mHired;
-        }
-        #endregion
+            get
+            {
+                return mEmployeeNumber;
+            }
+            set
+            {
+                mEmployeeNumber = EmployeeNumber;
+            }
 
-        #region Setters
-        public void SetEmployeeNumber(int EmployeeNumber)
+        }
+        public bool isHired
         {
-            mEmployeeNumber = EmployeeNumber;
+            get
+            {
+                return mHired;
+            }
         }
 
-        public void SetSalary(int Salary)
+        public int Salary
         {
-            mSalary = Salary;
+            get
+            {
+                return mSalary;
+            }
+            set
+            {
+                mSalary = Salary;
+            }
         }
         #endregion
 
@@ -67,7 +76,7 @@ namespace ChisAlexandruEmployee
         }
         public override void display()
         {
-            Console.Write("First name: "+ getFirstName() + " Last name: " + getLastName() +" NumberID: "+ mEmployeeNumber+" Salary: "+ mSalary + " Hired " +mHired+ "\r\n");
+            Console.Write("First name: "+ FirstName + " Last name: " + LastName +" NumberID: "+ mEmployeeNumber+" Salary: "+ mSalary + " Hired " +mHired+ "\r\n");
         }
         #endregion
 

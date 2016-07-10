@@ -20,15 +20,14 @@ namespace ChisAlexandruEmployee
             Console.Read();
             #endregion
 
-            #region Test Databade
+            #region Test Database
             Database db1 = new Database();
-            db1.CreateArray();
             Employee emp1 = db1.addEmployee("Greg", "Wallis");
             emp1.fire();
             Employee emp2 = db1.addEmployee("Scott", "Kleper");
-            emp2.SetSalary(1000);
+            emp2.Salary=1000;
             Employee emp3 = db1.addEmployee("Nick", "Solter");
-            emp3.SetSalary(10000);
+            emp3.Salary=10000;
             emp3.promote();
             Console.WriteLine("All employees: \r\n");
             db1.displayAll();
@@ -39,6 +38,8 @@ namespace ChisAlexandruEmployee
             Console.WriteLine("Former employees: \r\n");
             db1.displayFormer();
             Console.Read();
+
+
             #endregion
         }
     }

@@ -21,26 +21,28 @@ namespace ChisAlexandruEmployee
         }
         #endregion
 
-        #region Getter
-        public string getFirstName()
+        #region Prop
+        public string FirstName 
         {
-            return mFirstName;
+            get
+            {
+                return mFirstName;
+            }
+            set
+            {
+                mFirstName = value;
+            }
         }
-        public string getLastName()
+        public string LastName
         {
-            return mLastName;
-        }
-        #endregion
-
-        #region Setter
-        public void setFirstName(string FirstName)
-        {
-            mFirstName = FirstName;
-        }
-
-        public void setLastName(string LastName)
-        {
-            mLastName = LastName;
+            get
+            {
+                return mLastName;
+            }
+            set
+            {
+                mLastName = value;
+            }
         }
         #endregion
 

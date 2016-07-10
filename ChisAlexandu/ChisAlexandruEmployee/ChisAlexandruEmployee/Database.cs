@@ -10,65 +10,47 @@ namespace ChisAlexandruEmployee
 
     class Database
     {
-        #region Constante
+        #region Constant
         const int kMaxEmployees = 100;
         const int kFirstEmployeeNumber = 1000;
         #endregion
 
         #region Constructor
-        public void CreateArray()
-        {
-            Employee e1 = new Employee();
-            for (int i = 0; i < kMaxEmployees; i++)
-            {
-                mEmployees[i] = e1;
-            }
-        }
         public Database()
         {
-            mNextSlot = 0;
-            mNextEmployeeNumber = kFirstEmployeeNumber;
+            mEmployees = new List<Employee>();
         }
         #endregion
 
         #region Functions
         public Employee addEmployee(string inFirstName, string inLastName)
         {
-            Employee theEmployee = mEmployees[mNextSlot];
-            mNextSlot++;
-            theEmployee.setFirstName(inFirstName);
-            theEmployee.setLastName(inLastName);
-            theEmployee.SetEmployeeNumber(mNextEmployeeNumber);
-            mNextEmployeeNumber++;
+            Employee theEmployee = new Employee();
+            theEmployee.FirstName=inFirstName;
+            theEmployee.LastName=inLastName;
+            theEmployee.EmployeeNumber=mEmployees.Count;
+           
             theEmployee.hire();
+            mEmployees.Add(theEmployee);
             return theEmployee;
         }
 
         public Employee getEmployee(int inEmployeeNumber)
         {
-            Employee e = new Employee();
-            for (int i = 0; i < mNextSlot; i++)
-            {
-                if (mEmployees[i].getEmployeeNumber() == inEmployeeNumber)
-                {
-                    return mEmployees[i];
-                }
-                else
-                    return e;
-            } 
-            return e;
+            if (inEmployeeNumber < mEmployees.Count)
+                return mEmployees[inEmployeeNumber];
+            else
+                return null;
         }
         public Employee getEmployee(string inFirstName, string inLastName)
         {
             Employee e = new Employee();
-            for (int i = 0; i < mNextSlot; i++)
+            for (int i = 0; i < mEmployees.Count ; i++)
             {
-                if (mEmployees[i].getFirstName() == inFirstName && mEmployees[i].getLastName() == inLastName)
+                if (mEmployees[i].FirstName == inFirstName && mEmployees[i].LastName == inLastName)
                 {
                     return mEmployees[i];
-                }
-                else
-                    return e;
+                }            
             }
             return e;
         }
@@ -77,39 +59,37 @@ namespace ChisAlexandruEmployee
         #region DisplayFunction
         public void displayAll()
         {
-            for (int i = 0; i < mNextSlot; i++)
+            foreach (Employee e in mEmployees)
             {
-                mEmployees[i].display();
+               e.display();
             }
         }
 
         public void displayCurrent()
         {
-            for (int i = 0; i < mNextSlot; i++)
+            foreach (Employee e in mEmployees)
             {
-                if (mEmployees[i].isHired())
+                if (e.isHired)
                 {
-                    mEmployees[i].display();
+                    e.display();
                 }
             }
         }
 
         public void displayFormer()
         {
-            for (int i = 0; i < mNextSlot; i++)
+            foreach (Employee e in mEmployees)
             {
-                if (!mEmployees[i].isHired())
+                if (!e.isHired)
                 {
-                    mEmployees[i].display();
+                    e.display();
                 }
             }
         }
         #endregion
 
         #region Members
-        protected Employee[] mEmployees = new Employee[kMaxEmployees];
-        protected int mNextSlot;
-        protected int mNextEmployeeNumber;
+        protected List<Employee> mEmployees;
         #endregion
     }
 }
