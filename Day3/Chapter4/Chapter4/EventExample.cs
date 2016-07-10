@@ -19,5 +19,14 @@ namespace Chapter4
             Console.WriteLine(newPrice);
         }
 
+        public static void MyOtherHandler(decimal oldPrice,
+            decimal newPrice)
+        {
+            //here we can treat price change
+            Console.WriteLine("in other event hanfler" + oldPrice.ToString());
+            Console.WriteLine("in other event hanfler" + newPrice.ToString());
+        }
+
+
     }
 }

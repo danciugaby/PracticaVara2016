@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Chapter4
 {
     delegate int Transformer(int x);
+
     class DelegateClass
     {
         public int Square(int x)
