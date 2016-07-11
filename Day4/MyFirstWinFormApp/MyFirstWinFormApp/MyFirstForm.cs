@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Employeemanager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace MyFirstWinFormApp
 {
     public partial class MyFirstForm : Form
     {
+        List<Employee> db = new List<Employee>();
         public MyFirstForm()
         {
             InitializeComponent();
+
+            db.Add(new Employee("test","ttt"));
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -40,11 +44,9 @@ namespace MyFirstWinFormApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Add("dsadsa   fdsdf ");
-            listBox1.Items.Add("dsadsa   fdsdf ");
-            listBox1.Items.Add("my");
-            listBox1.Items.Add("dsadsa   fdsdf ");
-            listBox1.Items.Add("dsadsa   fdsdf ");
+            listBox1.DataSource = db;
+            listBox1.DisplayMember = "Name";
+          
 
         }
 
