@@ -6,24 +6,38 @@ using System.Threading.Tasks;
 
 namespace Employee_Class
 {
+    
     public class Employee : Person 
     {
+        #region Delegates And Events
+        public delegate void newEmployeeEventHandler(Employee source,EventArgs args);
+        public event newEmployeeEventHandler EmployeeInstanced;
+        #endregion
         #region Members
         private const int DefaultSalary = 30000;
         private int Salary, EmployeeNumber;
         private bool Hired;
         #endregion
         #region Constructors
-        public Employee(string fname,string lname) : base(fname, lname)
+        public Employee(string fname,string lname,int sal=DefaultSalary,int empNum=-1,bool hire=false) : base(fname, lname)
         {
-            
-            Salary = DefaultSalary;
-            EmployeeNumber = -1;
-            Hired = false;
+            if (Hired == false)
+                Salary = 0;
+            else
+                Salary = sal;
+            EmployeeNumber = empNum;
+            Hired = hire;
+            EmployeeInstanced += Source_EmployeeInstanced;
+            OnNewEmployee();
         }
+
+        private void Source_EmployeeInstanced(Employee source, EventArgs args)
+        {
+            Hire();
+        }
+
         public Employee()
         {
-
         }
         #endregion
         #region Properties
@@ -40,13 +54,13 @@ namespace Employee_Class
         public int accessSalary
         {
             get { return Salary; }
-            set { Salary = value; }
+            set { Salary = value; }//valdiations
         }
         #endregion
         #region Methods
         public void RaiseSalary(int Raise=2000)
         {
-            Salary = Salary + Raise;
+            Salary = Salary + Raise;//validations
         }
         public void DemoteSalary(int Demote=2000)
         {
@@ -62,14 +76,19 @@ namespace Employee_Class
         }
         public void display()
         {
-            Console.WriteLine(accesFName);
-            Console.WriteLine(accesLName);
-            Console.WriteLine(Salary);
-            Console.WriteLine(EmployeeNumber);
+            Console.WriteLine($"First Name:{accesFName}");
+            Console.WriteLine($"Last Name:{accesLName}");
+            Console.WriteLine($"Saalry:{Salary}");
+            Console.WriteLine($"Phone Number:{EmployeeNumber}");
             if (Hired == true)
                 Console.WriteLine("The person is an employee");
             else
                 Console.WriteLine("The person is not an employee");
+        }
+        protected virtual void OnNewEmployee()
+        {
+            if (EmployeeInstanced != null)
+                EmployeeInstanced(this, EventArgs.Empty);
         }
         #endregion
     }
