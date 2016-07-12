@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Employee_Class
 {
-    class Database
+  public  class Database
     {
         private List<Employee> Members = new List<Employee>();
-        private int status=0;
         public Database()
         {
             for (int i = 0; i < 5; i++)
@@ -21,6 +20,20 @@ namespace Employee_Class
                 Members.Add(newEmp);
             }
         }
+
+        public List<Employee> accessDatabase
+        {
+            get
+            {
+                return Members;
+            }
+
+            set
+            {
+                Members = value;
+            }
+        }
+
         public void DisplayMembers()
         {
             foreach(Employee e in Members)

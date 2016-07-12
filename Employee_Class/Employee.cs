@@ -10,17 +10,19 @@ namespace Employee_Class
     {
         #region Members
         private const int DefaultSalary = 30000;
-        private int Salary, EmployeeNumber;
+        private int Salary;
+        private string EmployeeNumber;
         private bool Hired;
         #endregion
         #region Constructors
-        public Employee(string fname,string lname) : base(fname, lname)
+        public Employee(string fname,string lname,string sal=null, string employeeNumber=null) : base(fname, lname)
         {
-           // firstName = fname;
-           // lastName = lname;   
-            Salary = DefaultSalary;
-            EmployeeNumber = -1;
-            Hired = false;
+            if (sal == null)
+                Salary = DefaultSalary;
+            else
+                Salary = Int32.Parse(sal);
+            EmployeeNumber = employeeNumber;
+            Hired = true;
         }
         public Employee()
         {
@@ -28,7 +30,7 @@ namespace Employee_Class
         }
         #endregion
         #region Properties
-        public int accessEmpNum
+        public string accessEmpNum
         {
             get { return EmployeeNumber; }
             set { EmployeeNumber = value; }
