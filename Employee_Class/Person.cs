@@ -17,7 +17,8 @@ namespace Employee_Class
         }
         public Person()
         {
-
+            firstName = "";
+            lastName = "";
         }
         #endregion
         #region Proprerties
