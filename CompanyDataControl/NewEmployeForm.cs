@@ -12,6 +12,7 @@ namespace CompanyDataControl
 {
     public partial class NewEmployeForm : Form
     {
+<<<<<<< HEAD
         string fname;
         string lname;
         string salary;
@@ -69,10 +70,13 @@ namespace CompanyDataControl
             }
         }
 
+=======
+>>>>>>> feature/Departments
         public NewEmployeForm()
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
 
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -92,5 +96,7 @@ namespace CompanyDataControl
         {
             this.DialogResult = DialogResult.Cancel;
         }
+=======
+>>>>>>> feature/Departments
     }
 }

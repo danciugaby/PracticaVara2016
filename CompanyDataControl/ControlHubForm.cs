@@ -12,6 +12,7 @@ namespace CompanyDataControl
 {
     public partial class ControlHubForm : Form
     {
+<<<<<<< HEAD
         private Employee_Class.Database Data;
         public ControlHubForm()
         {
@@ -31,6 +32,14 @@ namespace CompanyDataControl
 
         private void DatabaseDisplay_SelectedIndexChanged(object sender, EventArgs e)
         {
+=======
+        public ControlHubForm()
+        {
+            InitializeComponent();
+        }
+        private void btnNewEmployee_Click(object sender, EventArgs e)
+        {
+>>>>>>> feature/Departments
 
         }
     }

@@ -49,7 +49,10 @@
             this.DatabaseDisplay.Size = new System.Drawing.Size(411, 396);
             this.DatabaseDisplay.TabIndex = 3;
             this.DatabaseDisplay.UseCompatibleStateImageBehavior = false;
+<<<<<<< HEAD
             this.DatabaseDisplay.SelectedIndexChanged += new System.EventHandler(this.DatabaseDisplay_SelectedIndexChanged);
+=======
+>>>>>>> feature/Departments
             // 
             // ControlHubForm
             // 
