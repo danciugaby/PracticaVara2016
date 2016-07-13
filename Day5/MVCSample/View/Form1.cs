@@ -34,5 +34,25 @@ namespace View
                 )
                 MessageBox.Show("success");
         }
+        void PopulateList()
+        {
+            lstEmployees.DataSource = d.QueryAll();
+            lstEmployees.Refresh();
+        }
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            PopulateList();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+           int index = lstEmployees.SelectedIndex;
+            if (index > 0)
+            {
+                d.DeleteAt(index);
+                PopulateList();
+            }
+           
+        }
     }
 }
