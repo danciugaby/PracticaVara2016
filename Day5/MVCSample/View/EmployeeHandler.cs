@@ -16,5 +16,17 @@ namespace View
         {
             InitializeComponent();
         }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            if (!TextValidator.Validate(txtName.Text))
+                txtName.Text = "a";
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            if (!TextValidator.ValidateLeave(txtName.Text))
+                txtName.Text = "u";
+        }
     }
 }
