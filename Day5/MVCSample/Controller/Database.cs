@@ -11,10 +11,11 @@ namespace Controller
     public class Database 
     {
         IList<Employee> database;
-        ModelManagerWrapper modelwrapper = new ModelManagerWrapper();
+        ModelManagerWrapper modelwrapper; 
         public Database()
         {
             database = new MyList();
+            modelwrapper  = new ModelManagerWrapper();
         }
        public bool Add(string name, string firstname)
         {
@@ -25,7 +26,16 @@ namespace Controller
             Array a=database.ToArray<Employee>();
             Array.Sort(a);
             return  modelwrapper.Add(e);
-        } 
+        }
+
+        public List<string> QueryAll()
+        {
+            return modelwrapper.QueryAll();
+        }
+        public bool DeleteAt(int index)
+        {
+            return modelwrapper.DeletAtIndex(index);
+        }
     }
    
 }

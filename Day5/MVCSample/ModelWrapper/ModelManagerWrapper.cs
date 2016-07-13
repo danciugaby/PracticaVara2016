@@ -19,5 +19,13 @@ namespace ModelWrapper
         {
             return iomanager.Insert(e);
         }
+        public List<string> QueryAll()
+        {
+            return iomanager.QueryAll();
+        }
+        public bool DeletAtIndex(int index)
+        {
+            return iomanager.DeleteAt(index);
+        }
     }
 }
