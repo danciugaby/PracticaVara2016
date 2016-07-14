@@ -8,10 +8,16 @@ namespace UnitTestProject
     public class UnitTest1
     {
         [TestMethod]
-        public void TestEnumerator()
+        public void TestEnumeration()
         {
                 Linq.Linqer.TestEnum();
             
+        }
+        [TestMethod]
+        public void TestEnumerator()
+        {
+            Linq.Linqer.TestEnumeartor();
+
         }
     }
 }
