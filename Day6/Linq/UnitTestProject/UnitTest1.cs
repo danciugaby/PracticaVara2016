@@ -19,5 +19,29 @@ namespace UnitTestProject
             Linq.Linqer.TestEnumeartor();
 
         }
+        [TestMethod]
+        public void LinqWhereOp()
+        {
+            Linq.LinqOperators.WhereOp();
+
+        }
+        [TestMethod]
+        public void ChainingOperators()
+        {
+            Linq.LinqOperators.ChainingOp();
+
+        }
+        [TestMethod]
+        public void OtherOperators()
+        {
+            Linq.LinqOperators.OtherOperators();
+
+        }
+        [TestMethod]
+        public void SubQueries()
+        {
+            Linq.LinqOperators.SubQueries();
+
+        }
     }
 }
