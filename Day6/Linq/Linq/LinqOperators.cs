@@ -10,7 +10,9 @@ namespace Linq
     {
         public static void WhereOp()
         {
-            string[] names = {"Tom", "Dick", "Harry"};
+            string[] names = {"Ana","Tom", "Dick", "Harry"};
+
+            
             IEnumerable<string> filteredNames = System.Linq.Enumerable.Where
                 (names, n => n.Length >= 4);
             List<string> mylist = new List<string>(filteredNames);
@@ -25,9 +27,11 @@ namespace Linq
             string[] names = {"Tom", "Dick", "Harry", "Mary", "Jay"};
             IEnumerable<string> query = names
                 .Where(n => n.Contains("a"))
-                //.OrderBy(n => n.Length)
-                .OrderByDescending(n => n.ToLower())
+                .OrderBy(n => n.Length)                
+                //.OrderByDescending(n => n.ToLower())
                 .Select(n => n.ToUpper());
+            
+            List<string> mylist = new List<string>(query);
 
             IEnumerable<string> filtered = names.Where(n => n.Contains("a"));
             IEnumerable<string> sorted = filtered.OrderBy(n => n.Length);
@@ -42,7 +46,7 @@ namespace Linq
                         ), n => n.ToUpper()
                     );
 
-            List<string> mylist = new List<string>(filteredEnumerablequery.Skip(1));
+             mylist = new List<string>(filteredEnumerablequery.Skip(1));
             mylist = new List<string>(filteredEnumerablequery.Reverse().Take(2));
 
             mylist = filteredEnumerablequery.OrderBy(n => n).ToList();
@@ -57,27 +61,39 @@ namespace Linq
             int count = numbers.Count();
             int min = numbers.Min();
             bool hasAnOddElement = numbers.Any(n => n%2 != 0);
+            int countodds = numbers
+                .Where(n => n % 2 != 0)
+                .Count();
             double avg = numbers.Average();
             int sum = numbers.Sum();
 
             IEnumerable<char> query = "Not what you might expect";
             string vowels = "aeiou";
-            for (int i = 0; i < vowels.Length; i++)
-            {
-                query = query.Where(c => !vowels.Contains(c));
-            }
+            
+           query = query.Where(c => !vowels.Contains(c));
+           
             List<char> mylist = query.ToList();
 
         }
 
         public static void SubQueries()
         {
-            string[] names = {"Tom", "Dick", "Harry", "Mary", "Jay"};
+            string[] names = {"Tom", "Dick", "Harry", "Mary", "Jay", "Gimmy" };
+
+                      
+            
             IEnumerable<string> outerQuery = names
                 .Where(n => n.Length == names.OrderBy(n2 => n2.Length)
                     .Select(n2 => n2.Length).Last());
             List<string> mylist = outerQuery.ToList();
 
+            IEnumerable<string> query2 =
+                from n in names
+                select n.Replace("a", "").Replace("e", "").Replace("i", "")
+                    .Replace("o", "").Replace("u", "")
+                into noVowel
+                select noVowel;
+           
 
             IEnumerable<string> query =
                 from n in names
@@ -87,6 +103,7 @@ namespace Linq
                 where noVowel.Length > 2
                 orderby noVowel
                 select noVowel;
+                
 
             mylist = query.ToList();
 
