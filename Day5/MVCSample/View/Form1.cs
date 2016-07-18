@@ -54,5 +54,10 @@ namespace View
             }
            
         }
+
+        private void lstEmployees_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
