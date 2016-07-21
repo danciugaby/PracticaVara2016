@@ -13,17 +13,40 @@ namespace Threads
         static bool done;
         static readonly object locker = new object();
 
-      
+        public static bool Done
+        {
+            get
+            {
+                return done;
+            }
+
+            set
+            {
+                done = value;
+            }
+        }
+
         public static void Go()
         {
+            
             lock (locker)
             {
-                if (!done)
-                {
-                    Console.WriteLine(Thread.CurrentThread.Name + " Done");
-                    done = true;
-                }
+                Console.WriteLine(Thread.CurrentThread.Name + " Trying to access");
+               
             }
+            lock (locker)
+            {
+              
+                if (!Done)
+                {
+                   
+                    Console.WriteLine(Thread.CurrentThread.Name + " Done");
+                    //done = true;
+                }
+                ///...
+                ///
+            }
+            //...
         }
     }
 }

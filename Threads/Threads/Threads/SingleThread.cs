@@ -9,11 +9,13 @@ namespace Threads
 {
     public class SingleThread
     {
+        bool childended = false;
        public  void CreateThread()
         {
            // Thread t = new Thread(WriteY); // Kick off a new thread
            Thread t = new Thread(new ThreadStart(WriteY));
             t.Start();
+            
             for (int i = 0; i < 1000; i++)
                 Console.Write("x");
 
@@ -22,6 +24,8 @@ namespace Threads
         {
             for (int i = 0; i < 2000; i++) 
                 Console.Write("y");
+            childended = true;
+
         }
 
         public void CreateThreadAndJoin()
@@ -30,8 +34,10 @@ namespace Threads
             Thread t = new Thread(new ThreadStart(WriteY));
             t.Start();
             t.Join();
+            
             for (int i = 0; i < 1000; i++)
                 Console.Write("x");
+          
 
         }
 

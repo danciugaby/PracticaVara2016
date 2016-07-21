@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads", "Threads\Threads.csproj", "{0B346E1D-4AAE-4A32-B7FD-634AC9C05B8C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadRunner", "ThreadRunner\ThreadRunner.csproj", "{CA1A34B5-F54B-453C-B1E0-ACCAE0D3C4F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{7284C043-320A-4741-A993-826E40A78184}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CA1A34B5-F54B-453C-B1E0-ACCAE0D3C4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA1A34B5-F54B-453C-B1E0-ACCAE0D3C4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA1A34B5-F54B-453C-B1E0-ACCAE0D3C4F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7284C043-320A-4741-A993-826E40A78184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7284C043-320A-4741-A993-826E40A78184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7284C043-320A-4741-A993-826E40A78184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7284C043-320A-4741-A993-826E40A78184}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

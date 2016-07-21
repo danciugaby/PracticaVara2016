@@ -11,19 +11,22 @@ namespace Threads
     {
         static readonly object _locker = new object();
         static int _val1, _val2;
+        static decimal _savingsBalance, _checkBalance;
 
         static void Go()
         {
+
             Monitor.Enter(_locker);
             try
             {
+                Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
                 if (_val2 != 0)
-                    Console.WriteLine(_val1/_val2);
-                _val2 = 0;
+                    Console.WriteLine(_val1 / _val2);
+               // _val2 = 0;
             }
             finally
             {
-                Monitor.Exit(_locker);
+               Monitor.Exit(_locker);
             }
         }
 
@@ -36,19 +39,21 @@ namespace Threads
             }
             for (int i = 0; i < 5; i++)
             {
-                _val1 = i*i;
+
+                _val1 = i * i;
                 _val2 = i;
                 threads[i].Start();
+
             }
         }
 
-        static decimal _savingsBalance, _checkBalance;
+        
 
         delegate void TransferDelegate(object a);
         public static void Examplelocker()
         {
             _savingsBalance = 10;
-            _checkBalance=20;
+            _checkBalance = 20;
             TransferDelegate d = ThreadSync.Transfer;
             ParameterizedThreadStart pm = new ParameterizedThreadStart(d);
             new Thread(pm).Start(20);
@@ -62,7 +67,7 @@ namespace Threads
         }
         static void Transfer(object a)
         {
-           lock (_locker)
+            lock (_locker)
             {
                 decimal amount = Decimal.Parse(a.ToString());
                 _savingsBalance += amount;
