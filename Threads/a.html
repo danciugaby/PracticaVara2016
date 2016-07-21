@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><link rel="stylesheet" href="content/pure.css?v=2" /><link rel="stylesheet" href="content/styles.css?v=15" />
+	
+	<script type="text/javascript">
+		function ValidateRegName(textBox) {
+			if (textBox.value.replace(/^\s*/, '').replace(/\s*$/, '').length < 3) {
+				alert("Registration name must be at least 3 characters");
+				return (false);
+			}
+			return (true);
+		}
+		function currentYPosition() {
+			// Firefox, Chrome, Opera, Safari
+			if (self.pageYOffset) return self.pageYOffset;
+			// Internet Explorer 6 - standards mode
+			if (document.documentElement && document.documentElement.scrollTop)
+				return document.documentElement.scrollTop;
+			// Internet Explorer 6, 7 and 8
+			if (document.body.scrollTop) return document.body.scrollTop;
+			return 0;
+		}
+		function elmYPosition(eID) {
+			var elm = document.getElementById(eID);
+			var y = elm.offsetTop;
+			var node = elm;
+			while (node.offsetParent && node.offsetParent != document.body) {
+				node = node.offsetParent;
+				y += node.offsetTop;
+			} return y;
+		}
+		function smoothScroll(eID) {
+			var startY = currentYPosition();
+			var stopY = elmYPosition(eID);
+			var distance = stopY > startY ? stopY - startY : startY - stopY;
+			if (distance < 100) {
+				scrollTo(0, stopY); return;
+			}
+			var speed = Math.round(distance / 100);
+			if (speed >= 20) speed = 20;
+			var step = Math.round(distance / 25);
+			var leapY = stopY > startY ? startY + step : startY - step;
+			var timer = 0;
+			if (stopY > startY) {
+				for (var i = startY; i < stopY; i += step) {
+					setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+					leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+				} return;
+			}
+			for (var i = startY; i > stopY; i -= step) {
+				setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+				leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+			}
+		}
+	</script>
+<title>
+	LINQPad - The .NET Programmer's Playground
+</title></head>
+<body>
+	<form name="aspnetForm" method="post" action="./" id="aspnetForm" class="pure-form">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwMDUyNjYzMjhkZFTFq7CW64tur4QMlAAUqPx/rJcI" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+		<header>
+			<div class="mainmenu-outer">
+				<div class="mainmenu-inner">
+					<div class="pure-menu pure-menu-open pure-menu-horizontal">
+						<a href="http://www.linqpad.net" class="pure-menu-heading">
+							<img src="Images/lambda.png" height="28" width="30" class="lambda" />LINQPad</a>
+						<ul id="ctl00_nav"><li class='pure-menu-selected'><a class='pure-menu-selected' href='/'>Home</a></li><li><a href='Download.aspx'>Download</a></li><li><a href='Purchase.aspx'>Purchase</a></li><li><a href='CustomUpgrade.aspx'>Upgrade</a></li><li><a href='FAQ.aspx'>FAQ</a></li><li><a href='Resources.aspx'>Resources</a></li><li><a href='ResellerPurchase.aspx'>Resellers</a></li><li><a href='Feedback.aspx'>Support</a></li></ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div id="body">
+			
+
+	<div class="blankouter">
+
+		<div class="titleimage">
+			<img alt="" src="images/LINQPad.png" width="180" height="180">
+		</div>
+
+		<div class="maintitle">
+			The .NET Programmerâ€™s Playground
+		</div>
+
+		<div class="centerlist">
+			<ul>
+				<li><a href="#scratchpad" onclick="smoothScroll('scratchpad')">Instantly test</a> any C#/F#/VB snippet or program</li>
+				<li><a href="#db" onclick="smoothScroll('db')">Query databases in LINQ</a> (or SQL) â€” SQL/CE/Azure, Oracle, SQLite &amp; MySQL</li>
+				<li>Enjoy <a href="#dump" onclick="smoothScroll('dump')">rich output formatting</a>, optional autocompletion and integrated debugging</li>
+				<li><a href="lprun.aspx">Script and automate</a> in your favorite .NET language</li>
+				<li>Super lightweight â€” single 15MB executable!</li>
+				<li>Standard edition free, with no expiry</li>
+			</ul>
+		</div>
+
+		<div class="downloadbar">
+			<div class="downloadpreface">1.5 million downloads</div>
+			<div class="center">
+				<a class="pure-button pure-button-primary" style="" href="Download.aspx">Download LINQPad</a>
+			</div>
+		</div>
+
+		<h1 id="scratchpad">The Ultimate Scratchpad for C#, F# and VB
+		</h1>
+		
+		<div class="text">
+			<div class="annotatedimage">
+				<img class="image800" alt="" src="images/maincodescratchpad.png" height="532" width="785">
+				<p>
+					LINQPad is not just for LINQ queries, but any <b>C#/F#/VB expression, statement block or program</b>.
+					
+				Put an end to those hundreds of Visual Studio Console projects cluttering your source folder and join the revolution of LINQPad scripters and incremental developers. 
+				</p>
+				<p>
+					Reference your own assemblies and NuGet packages. Prototype your ideas in LINQPad and then paste working code into Visual Studio. Or call your scripts <a href="lprun.aspx">directly from the command-line</a>.
+				</p>
+				<p>
+					Experience LINQPadâ€™s rich output formatting, optional debugger and autocompletion, and the magic of dynamic development and instant feedback! 
+				</p>
+				<div class="center1000">
+					<a class="pure-button" href="CodeSnippetIDE.aspx">Learn more</a>
+				</div>
+			</div>
+		</div>
+		
+		<h1 id="db">Tired of Querying in Antiquated SQL?</h1>
+
+		<div class="recommendation">
+			<table>
+				<tr>
+					<td>
+						<img src="images/hanselman.png" alt="Hanselman" height="60" width="60" /> 
+					</td>
+					<td><blockquote>â€œ</blockquote></td>
+					<td>
+						<blockquote>Fantastic Learning Toolâ€</blockquote>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<a href="http://www.hanselman.com/blog/ScottHanselmans2009UltimateDeveloperAndPowerUsersToolListForWindows.aspx">
+				Scott Hanselman</a>, Principal Program Manager, Microsoft
+			</p>
+		</div>
+		
+		<div class="resourcesbar">
+			<p>
+			Full support for <b>C# 6</b> and <b>VB 14</b> in <a href="download.aspx#LINQPad5">LINQPad 5</a>.
+			</p>
+		</div>
+		
+		<div class="text">
+			<p>
+				Well, you donâ€™t have to! With LINQPad, you can interactively query databases in a <i>modern query language</i>: <b>LINQ</b>. LINQPad includes an optimized engine to build typed data contexts
+				on the fly, and includes drivers and formatters for:
+			</p>
+			
+			<ul>
+				<li>SQL Server, SQL Azure, SQL CE, Oracle, SQLite and MySQL</li>
+				<li>Azure Table Storage &amp; Azure Metadata</li>
+				<li>OData / WCF Data Services, <a href="http://www.mssharepointtips.com/tip.asp?id=1179">SharePoint</a>, and <a href="http://blogs.msdn.com/b/datamarket/archive/2011/01/11/real-world-datamarket-interview-with-linqpad.aspx">Windows DataMarket</a></li>
+				<li>Microsoftâ€™s <a href="http://blogs.msdn.com/b/streaminsight/archive/2010/11/24/streaminsight-linqpad-driver.aspx">StreamInsight</a>, ubercool <a href="http://msdn.microsoft.com/en-us/data/gg577609">Reactive Extensions</a> and <a href="http://tx.codeplex.com/">LINQ to Logs & Traces</a></li>
+				<li>Third-party ORMs including <a href="http://www.mindscape.co.nz/blog/index.php/2010/03/01/lightspeed-and-linqpad-the-perfect-partners/">Mindscape LightSpeed</a>, <a href="http://www.devart.com/linqconnect/linqpad-support.html">DevArtâ€™s LinqConnect</a>, <a href="http://www.llblgen.com">LLBLGen</a>, <a href="http://community.devexpress.com/blogs/xpo/archive/2011/12/27/xpo-s-new-friend-is-the-linqpad.aspx">DevExpress eXpress Persistent Objects</a> and <a href="http://www.ideablade.com/solutions/devforce-linqpad-driver.aspx?eng=lqpd">DevForce</a></li>
+			</ul>
+			
+			<p>LINQPad also supports all the LINQ APIs in the .NET Framework, including LINQ to XML, PLINQ, LINQ to SQL and Entity Framework.
+			</p>
+		
+			<div class="center">
+				<img id="mainscreenshot" class="image1000" src="images/mainscreenshot.png" alt="LINQPad Screenshot" width="970" height="641">
+			</div>
+			
+		</div>
+		
+		<div class="textrec recommendation">
+			<blockquote style="font-size:14pt">â€œThis is one of those useful tools you just should always have around and â€˜linqedâ€™ to a hotkeyâ€</blockquote>
+			<p>
+				<a href="http://www.west-wind.com/Weblog/posts/319003.aspx">Rick Strahl, West Wind Technologies</a>
+			</p>
+		</div>
+		
+		<div class="text">
+			
+			<p>And when you need to, you can <b>still query in good old-fashioned SQL</b> â€” even if your back-end is SQLite, Oracle or MySQL. Without any heavy installations or oppressive EULAs!
+			</p>
+			
+			<p>
+				LINQPad is also a <b>great way to learn LINQ</b>: it comes loaded with 500 examples
+				from the book, <a href="http://www.albahari.com/nutshell/">C# 6.0 in a Nutshell</a>. Thereâ€™s no better way to experience the coolness of LINQ and <i>functional programming</i>.
+			</p>
+		
+			<h1 id="dump">Experience the Legendary Dump!</h1>
+		
+			<div class="annotatedimage">
+					<img class="image600" alt="" src="images/thebigdump.png" height="440" width="612">
+					<p>
+						LINQPadâ€™s Dump method is famous for its capacity to eat almost anything! 
+					</p>
+				<p>Tuned with numerous heuristics, it intelligently walks object graphs for the best possible output. It even turns lazy objects into hyperlinks 
+					and asynchronous values into placeholders whose content materializes in the future!
+				</p>
+				<p>Images and bitmaps render as images and bitmaps, and types from Reactive Extensions and Dataflow fully animate.</p>
+				<p>Dump any WPF or Windows Forms object and it will actually render.</p>
+				<p>And when you need a traditional data grid or debugger watch window, itâ€™s there, too.</p>
+				<div class="center800">
+					<a class="pure-button pure-button-primary" href="Download.aspx">Download LINQPad</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="backtotop">
+			<a href="javascript:scroll(0,0)">Back to Top</a>
+		</div>
+
+	</div>
+
+
+		</div>
+		<footer>
+			<div class="footer-outer">
+				<div class="footer-inner">
+					<div class="footer-column">
+						<table style="margin-bottom: 3px">
+							<tr>
+								<td>
+									<a href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fwww.linqpad.net%2F&region=follow_link&screen_name=linqpad&tw_p=followbutton">
+									<img src="images/twitter.png" width="25" height="20" />
+										</a>
+								</td>
+								<td>
+									<a href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fwww.linqpad.net%2F&region=follow_link&screen_name=linqpad&tw_p=followbutton" 
+										class="twitter-follow-text" style="margin-left: 3px; color: #c7c7c7; font-weight: bold; font-size: 12pt">follow @linqpad</a>
+								</td>
+							</tr>
+						</table>
+						<a class="twitter-timeline" href="https://twitter.com/linqpad/favorites" data-widget-id="349757402578554880">Twitter</a>
+						<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+					</div>
+					<div class="footer-column">
+						<table style="margin-bottom: 3px">
+							<tr>
+								<td>
+									<a href="http://www.facebook.com/LINQPad">
+										<img src="images/facebook.png" width="20" height="20" style="margin-left: 3px" />
+									</a>
+								</td>
+								<td>
+									<a href="http://linqpad.uservoice.com">
+										<img src="images/uservoice.png" width="20" height="20" style="margin-left: 8px" />
+									</a>
+								</td>
+								<td>
+									<a href="http://forum.linqpad.net/">
+										<img src="images/forum.png" width="20" height="20" style="margin-left: 8px" />
+									</a>
+								</td>
+							</tr>
+						</table>
+						<div class="footer-panel" style="height: 293px;">
+							<p style="font-size:11pt; padding:0">Follow <a href="http://www.facebook.com/LINQPad">LINQPad on Facebook</a></p>
+							<p>
+								<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Flinqpad&amp;width=265&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 265px; height: 80px;" allowtransparency="true"></iframe>
+							</p>
+							<p>
+								<a class="footer-button pure-button" href="http://linqpad.uservoice.com">Make a Feature Request</a>
+							</p>
+							<p>
+								<a class="footer-button pure-button" href="http://forum.linqpad.net/">Visit the LINQPad Forum</a>
+							</p>
+							<p>
+								<a class="footer-button pure-button" href="Feedback.aspx">Contact Customer Support</a>
+							</p>
+						</div>
+					</div>
+					<div style="clear: both"></div>
+				</div>
+				<p class="footer-footer">
+					Â© Joseph Albahari 2007-2015
+				</p>
+			</div>
+		</footer>
+	</form>
+</body>
+</html>
