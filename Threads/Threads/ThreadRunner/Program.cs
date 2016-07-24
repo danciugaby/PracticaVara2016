@@ -71,8 +71,10 @@ namespace ThreadRunner
         static void Main(string[] args)
         {
 
-            ThreadSyncing();
-            Thread.Sleep(1000);
+            Tasks.DisplayPrimesCount();
+
+           // ThreadSyncing();
+            Thread.Sleep(2000);
 
             //ParameterizedThreadStart pm = new ParameterizedThreadStart(ff);
             //Thread t = new Thread(pm);

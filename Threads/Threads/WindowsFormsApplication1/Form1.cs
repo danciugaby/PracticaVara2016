@@ -91,5 +91,39 @@ namespace WindowsFormsApplication1
                 backgroundWorker1.CancelAsync();
             }
         }
+        void Go()
+        {
+            for (int i = 1; i < 5; i++)
+                richTextBox1.Text += GetPrimesCount(i * 1000000, 1000000) +
+                " primes between " + (i * 1000000) + " and " + ((i + 1) * 1000000 - 1) +
+                Environment.NewLine;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            Go();
+        }
+        int GetPrimesCount(int start, int count)
+        {
+            return ParallelEnumerable.Range(start, count).Count(n =>
+          Enumerable.Range(2, (int)Math.Sqrt(n) - 1).All(i => n % i > 0));
+        }
+        Task<int> GetPrimesCountAsync(int start, int count)
+        {
+            return Task.Run(() =>
+           ParallelEnumerable.Range(start, count).Count(n =>
+         Enumerable.Range(2, (int)Math.Sqrt(n) - 1).All(i => n % i > 0)));
+        }        async void GoGo()
+        {
+            //button2.IsEnabled = false;
+            for (int i = 1; i < 5; i++)
+            {
+                richTextBox1.Text += await GetPrimesCountAsync(i * 1000000, 1000000) +
+                " primes between " + (i * 1000000) + " and " + ((i + 1) * 1000000 - 1) +
+
+                Environment.NewLine;
+            }
+            //button2.IsEnabled = true;
+        }
     }
 }
