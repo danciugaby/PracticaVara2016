@@ -8,14 +8,56 @@ namespace ChisAlexandruEmployee
 {
     class Employee:Person
     {
-        #region Functions
+        #region Constructor
+        public Employee()
+        {
+            mEmployeeNumber = 0;
+            Salary=0;
+            mHired = false;
+        }
         public Employee(string FirstName, string LastName,int EmployeeNumber,int Salary,bool Hired): base(FirstName,LastName)
         {
             mEmployeeNumber = EmployeeNumber;
             mSalary = Salary;
             mHired = Hired;
         }
-        #region MemberFunctions
+        #endregion
+
+        #region Prop
+        public int EmployeeNumber
+        {
+            get
+            {
+                return mEmployeeNumber;
+            }
+            set
+            {
+                mEmployeeNumber = EmployeeNumber;
+            }
+
+        }
+        public bool isHired
+        {
+            get
+            {
+                return mHired;
+            }
+        }
+
+        public int Salary
+        {
+            get
+            {
+                return mSalary;
+            }
+            set
+            {
+                mSalary = Salary;
+            }
+        }
+        #endregion
+
+        #region Functions
         public void promote(int inRaiseAmount = 1000)
         {
             mSalary += inRaiseAmount;
@@ -34,10 +76,10 @@ namespace ChisAlexandruEmployee
         }
         public override void display()
         {
-            Console.Write("First name: "+ mFirstName + " Last name: " + mLastName+" NumberID: "+ mEmployeeNumber+" Salary: "+ mSalary + " Hired " +mHired+ "\r\n");
+            Console.Write("First name: "+ FirstName + " Last name: " + LastName +" NumberID: "+ mEmployeeNumber+" Salary: "+ mSalary + " Hired " +mHired+ "\r\n");
         }
         #endregion
-        #endregion
+
         #region Members
         private int mEmployeeNumber;
         private int mSalary;

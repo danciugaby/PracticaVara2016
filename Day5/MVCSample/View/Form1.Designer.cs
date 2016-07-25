@@ -31,11 +31,10 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAdd = new System.Windows.Forms.TabPage();
-            this.employeeHandler = new View.EmployeeHandler();
             this.tabList = new System.Windows.Forms.TabPage();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
             this.lstEmployees = new System.Windows.Forms.ListBox();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabAdd.SuspendLayout();
             this.tabList.SuspendLayout();
@@ -43,9 +42,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(305, 54);
+            this.btnAdd.Location = new System.Drawing.Point(229, 44);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(56, 19);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -56,49 +56,56 @@
             this.tabControl1.Controls.Add(this.tabAdd);
             this.tabControl1.Controls.Add(this.tabList);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tabControl1.Location = new System.Drawing.Point(75, 57);
+            this.tabControl1.Location = new System.Drawing.Point(56, 46);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(790, 518);
+            this.tabControl1.Size = new System.Drawing.Size(592, 421);
             this.tabControl1.TabIndex = 2;
             // 
             // tabAdd
             // 
-            this.tabAdd.Controls.Add(this.employeeHandler);
             this.tabAdd.Controls.Add(this.btnAdd);
-            this.tabAdd.Location = new System.Drawing.Point(4, 25);
+            this.tabAdd.Location = new System.Drawing.Point(4, 22);
+            this.tabAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabAdd.Name = "tabAdd";
-            this.tabAdd.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAdd.Size = new System.Drawing.Size(782, 489);
+            this.tabAdd.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabAdd.Size = new System.Drawing.Size(584, 395);
             this.tabAdd.TabIndex = 0;
             this.tabAdd.Text = "Add";
             this.tabAdd.UseVisualStyleBackColor = true;
-            // 
-            // employeeHandler
-            // 
-            this.employeeHandler.Location = new System.Drawing.Point(36, 13);
-            this.employeeHandler.Name = "employeeHandler";
-            this.employeeHandler.Size = new System.Drawing.Size(252, 166);
-            this.employeeHandler.TabIndex = 0;
             // 
             // tabList
             // 
             this.tabList.Controls.Add(this.btnDelete);
             this.tabList.Controls.Add(this.btnQuery);
             this.tabList.Controls.Add(this.lstEmployees);
-            this.tabList.Location = new System.Drawing.Point(4, 25);
+            this.tabList.Location = new System.Drawing.Point(4, 22);
+            this.tabList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabList.Name = "tabList";
-            this.tabList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabList.Size = new System.Drawing.Size(782, 489);
+            this.tabList.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabList.Size = new System.Drawing.Size(584, 395);
             this.tabList.TabIndex = 1;
             this.tabList.Text = "List";
             this.tabList.UseVisualStyleBackColor = true;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(453, 172);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(107, 43);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(604, 53);
+            this.btnQuery.Location = new System.Drawing.Point(453, 43);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(143, 53);
+            this.btnQuery.Size = new System.Drawing.Size(107, 43);
             this.btnQuery.TabIndex = 1;
             this.btnQuery.Text = "Query DB";
             this.btnQuery.UseVisualStyleBackColor = true;
@@ -107,28 +114,20 @@
             // lstEmployees
             // 
             this.lstEmployees.FormattingEnabled = true;
-            this.lstEmployees.ItemHeight = 16;
-            this.lstEmployees.Location = new System.Drawing.Point(63, 44);
+            this.lstEmployees.Location = new System.Drawing.Point(47, 36);
+            this.lstEmployees.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstEmployees.Name = "lstEmployees";
-            this.lstEmployees.Size = new System.Drawing.Size(463, 276);
+            this.lstEmployees.Size = new System.Drawing.Size(348, 225);
             this.lstEmployees.TabIndex = 0;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(604, 212);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(143, 53);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.lstEmployees.SelectedIndexChanged += new System.EventHandler(this.lstEmployees_SelectedIndexChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 609);
+            this.ClientSize = new System.Drawing.Size(694, 495);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
