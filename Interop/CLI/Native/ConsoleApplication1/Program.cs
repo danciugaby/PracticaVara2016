@@ -10,8 +10,13 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Bridge.ClassDotNet caller = new Bridge.ClassDotNet();
-            int i = caller.ExposedMedthod(1);
+            {
+                Bridge.ClassDotNet caller = new Bridge.ClassDotNet();
+                List<Bridge.MyPoint> inputs = new List<Bridge.MyPoint>();
+                inputs.Add(new Bridge.MyPoint(1, 1));
+                inputs.Add(new Bridge.MyPoint(2, 2));
+                List<Bridge.MyPoint> results = caller.DoubleArray(inputs);
+            }
         }
     }
 }

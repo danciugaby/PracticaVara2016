@@ -133,11 +133,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="A.h" />
     <ClInclude Include="Bridge.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="A.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Bridge.cpp" />
     <ClCompile Include="Stdafx.cpp">
