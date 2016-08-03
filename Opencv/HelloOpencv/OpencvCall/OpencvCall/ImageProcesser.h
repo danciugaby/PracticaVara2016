@@ -1,16 +1,23 @@
-#pragma once
-#include <cv.h>
 
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/imgproc.hpp>
+#include "stdafx.h"
+#include "ColorProcessing.h"
+#include "Filtering.h"
 
 class ImageProcesser
 {
-public:
-	ImageProcesser();
-	~ImageProcesser();
 
-	void GrayImage(char * path);
+public:
+	ImageProcesser(char * path);
+	 ~ImageProcesser();
+
+	 void GrayImage();
+
+	 void InvertImage();
+
+	 void PlayWithImages();
+
+
+private :
+	cv::Mat _img;
 };
 
