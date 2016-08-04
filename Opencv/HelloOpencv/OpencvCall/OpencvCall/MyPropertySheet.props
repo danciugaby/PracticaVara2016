@@ -4,7 +4,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <IncludePath>..\..\..\3rdParty\include\;..\..\..\3rdParty\include\opencv;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\..\3rdParty\x64\vc12\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\..\..\3rdParty\x64\vc14\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Lib>
