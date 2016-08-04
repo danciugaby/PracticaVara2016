@@ -9,5 +9,7 @@ public:
 	cv::Mat KernelFilter(cv::Mat & img);
 
 	void EdgeFilter(cv::Mat & img);
+
+	void Morphology(cv::Mat & img);
 };
 

@@ -70,5 +70,6 @@ void ImageProcesser::PlayWithImages()
 	Filtering f;
 	cv::Mat gray = cp.Hsv(_img);
 	//cv::cvtColor(_img, gray, cv::COLOR_BGR2GRAY);
-	f.EdgeFilter(f.KernelFilter(gray));
+	//f.EdgeFilter(f.KernelFilter(gray));
+	f.Morphology(gray);
 }

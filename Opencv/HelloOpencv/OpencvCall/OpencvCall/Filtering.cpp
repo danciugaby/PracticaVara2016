@@ -74,3 +74,44 @@ void Filtering::EdgeFilter(cv::Mat & img)
 	cv::waitKey(0);
 
 }
+
+void Filtering::Morphology(cv::Mat & img)
+{
+	cv::Mat result = img.clone();
+	cv::erode(result, result, cv::Mat());
+	cv::erode(result, result, cv::Mat());
+	cv::erode(result, result, cv::Mat());
+	cv::imshow("result", result);
+
+	cv::waitKey(0);
+	cv::threshold(img, img, 128, 255, CV_THRESH_BINARY);
+	
+	
+
+	for (size_t i = 1; i < img.cols - 1; i++)
+	{
+		for (size_t j = 1; j < img.rows - 1; j++)
+		{
+			int sum = 0;
+			for (int k = -1; k < 2; k++)
+			{
+				for (int v = -1; v < 2; v++)
+				{
+					if (img.at<uchar>(j + v, i + k) == 0)
+					{
+						sum = 1;
+						break;
+					}
+				}
+				if (sum == 1)
+					break;
+			}
+			if (sum==1)
+				result.at<uchar>(j, i) = 0;
+		}
+
+	}
+	
+	cv::imshow("img", img);
+	cv::waitKey(0);
+}
